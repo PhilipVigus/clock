@@ -4,3 +4,8 @@
   margin: 5px;
   text-align: center;
 }
+
+#clock-analogue {
+  border: black solid 2px;
+  margin: 5px;
+}

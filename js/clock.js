@@ -24,10 +24,15 @@ function updateDigitalDisplay(timeNow) {
 function updateAnalogueDisplay(timeNow) {
 
   let canvas = document.getElementById("clock-analogue");
+  let context = canvas.getContext("2d");
 
-  // check to see if canvas is supported. If not then do something funky
-  if (!canvas.getContext("2d")) {
+  // check to see if canvas is supported. If not then do something else instead and return
+  if (!context) {
     alert("Canvas is not supported on this device - sorry!");
     return;
   }
+
+  context.fillStyle = 'rgb(200, 0, 0)';
+  context.fillRect(10, 10, 50, 50);
+
 }
