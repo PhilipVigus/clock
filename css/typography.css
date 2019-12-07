@@ -1,0 +1,43 @@
+/*
+ * Use the rem unit for size values, margin and padding
+ * as it is relative to the document font size rather than parent
+ */
+
+/* Use the em unit for breakpoints, with the calculation as follows:
+ * screen size / browser base font size
+ * As an example: a breakpoint at 980px = 980px / 16px = 61.25em
+ */
+
+html {
+  /*
+   * Assumes default font size on browser of 16px. 62.5% * 16 = 10px.
+   * The reason we do this is so that our base font size for all elements is 10px.
+   * It makes the maths much easier to alter font sizes of individual elements
+   * when you have a nice round number like this to start with
+   */
+  font-size: 62.5%;
+}
+
+/*
+ * Examples to be changed on a per project basis depending on
+ * what screen size breakpoints are being used
+ */
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* 768px / 16px = 48em */
+@media (max-width: 48em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace; /* placeholder */
+  font-size: 1rem; /* placeholder */
+}
