@@ -18,7 +18,11 @@ function displayCurrentTime() {
 }
 
 function updateDigitalDisplay(timeNow) {
-  document.getElementById("clock-digital").innerHTML = `${timeNow.getHours()}:${timeNow.getMinutes()}:${timeNow.getSeconds()}`;
+  document.getElementById("clock-digital").innerHTML = `${formatTimeComponent(timeNow.getHours())}:${formatTimeComponent(timeNow.getMinutes())}:${formatTimeComponent(timeNow.getSeconds())}`;
+}
+
+function formatTimeComponent(component) {
+  return component > 9 ? component.toString(10) : '0' + component.toString(10);
 }
 
 function updateAnalogueDisplay(timeNow) {
