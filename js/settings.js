@@ -61,4 +61,5 @@ function saveValuesToLocalStorage() {
 // wipes all of the data storage for this domain
 function clearStoredValues() {
     localStorage.clear();
+    retrieveStoredValues();
 }

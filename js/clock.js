@@ -1,5 +1,11 @@
 'use strict';
 
+let digitalTimeFormat = "12h";
+let timeOfDay = "am";
+
+window.addEventListener("storage", setDigitalTimeFormat);
+
+setDigitalTimeFormat();
 displayCurrentTime();
 
 function displayCurrentTime() {
@@ -18,7 +24,16 @@ function displayCurrentTime() {
 }
 
 function updateDigitalDisplay(timeNow) {
-  const timeString = `${formatTimeComponent(timeNow.getHours())}:${formatTimeComponent(timeNow.getMinutes())}:${formatTimeComponent(timeNow.getSeconds())}`;
+  let hours = 0;
+
+  // if we want 12 hour format, we need to subtract 12 from any hours greater than 12
+  if (digitalTimeFormat === "12h" && timeNow.getHours() > 12) {
+    hours = timeNow.getHours() - 12;
+  } else {
+    hours = timeNow.getHours();
+  }
+
+  const timeString = `${formatTimeComponent(hours)}:${formatTimeComponent(timeNow.getMinutes())}:${formatTimeComponent(timeNow.getSeconds())} ${timeOfDay}`;
   const dateString = `${timeNow.getDate()}-${timeNow.getMonth() + 1}-${timeNow.getFullYear()}`;
   document.getElementById("clock-digital").innerHTML = dateString + "\n" + timeString;
 }
@@ -127,4 +142,13 @@ function drawCircle(origin, radius, context) {
 
 function openSettingsTab() {
   window.open("settings.html", "_blank");
+}
+
+// called whenever the settings stored in Local Storage change and the first time the page loads
+function setDigitalTimeFormat() {
+  if (!localStorage.getItem("clock-dig-format") || localStorage.getItem("clock-dig-format") === "12h") {
+    digitalTimeFormat = "12h";
+  } else {
+    digitalTimeFormat = "24h";
+  }
 }
