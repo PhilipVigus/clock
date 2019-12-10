@@ -126,5 +126,5 @@ function drawCircle(origin, radius, context) {
 }
 
 function openSettingsTab() {
-  alert("open");
+  window.open("settings.html", "_blank");
 }
