@@ -46,8 +46,6 @@ function retrieveStoredValues() {
         // the setting was found to be 24h
         document.getElementsByName("time-format")[1].checked = true;
     }
-
-    localStorage.clear();
 }
 
 function saveValuesToLocalStorage() {
