@@ -33,7 +33,17 @@ function updateDigitalDisplay(timeNow) {
     hours = timeNow.getHours();
   }
 
-  const timeString = `${formatTimeComponent(hours)}:${formatTimeComponent(timeNow.getMinutes())}:${formatTimeComponent(timeNow.getSeconds())} ${timeOfDay}`;
+  if (digitalTimeFormat === "12h") {
+    if (timeNow.getHours() > 11) {
+      timeOfDay = "pm";
+    } else {
+      timeOfDay = "am";
+    }
+  } else {
+    timeOfDay = "";
+  }
+
+  const timeString = `${formatTimeComponent(hours)}:${formatTimeComponent(timeNow.getMinutes())}:${formatTimeComponent(timeNow.getSeconds())}${timeOfDay}`;
   const dateString = `${timeNow.getDate()}-${timeNow.getMonth() + 1}-${timeNow.getFullYear()}`;
   document.getElementById("clock-digital").innerHTML = dateString + "\n" + timeString;
 }
