@@ -2,6 +2,7 @@
 
 let digitalTimeFormat = "12h";
 let timeOfDay = "am";
+let settingsWindow = null;
 
 window.addEventListener("storage", setDigitalTimeFormat);
 
@@ -151,10 +152,14 @@ function drawCircle(origin, radius, context) {
 }
 
 function openSettingsTab() {
-  window.open("settings.html", "_blank");
+  
+  // prevent another settings tab from opening if one is already open
+  if (!settingsWindow) {
+    settingsWindow = window.open("settings.html", "_blank");
+  }
 }
 
-// called whenever the settings stored in Local Storage change and the first time the page loads
+// a callback triggered whenever the settings stored in Local Storage change and the first time the page loads
 function setDigitalTimeFormat() {
   if (!localStorage.getItem("clock-dig-format") || localStorage.getItem("clock-dig-format") === "12h") {
     digitalTimeFormat = "12h";
