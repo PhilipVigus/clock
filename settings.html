@@ -15,10 +15,11 @@
     <div>
         <p>Settings</p>
         <form id="settings">
-            <label><input type="radio" name="time-format" value="12h">12 hour</label>
-            <label><input type="radio" name="time-format" value="24h">24 hour</label>
-            <button type="button">Get</button>
-            <button type="button">Apply</button>
+            <label><input id="12h" type="radio" name="time-format" value="12h">12 hour</label>
+            <label><input id="24h" type="radio" name="time-format" value="24h">24 hour</label>
+            <button type="button" onclick="retrieveStoredValues()">Get</button>
+            <button type="button" onclick="saveValuesToLocalStorage()">Apply</button>
+            <button type="button" onclick="clearStoredValues()">Clear</button>
         </form>
     </div>
 
