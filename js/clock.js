@@ -124,3 +124,7 @@ function drawCircle(origin, radius, context) {
   context.arc(Math.round(origin[0]), Math.round(origin[1]), radius, 0, 2 * Math.PI);
   context.stroke();
 }
+
+function openSettingsTab() {
+  alert("open");
+}
