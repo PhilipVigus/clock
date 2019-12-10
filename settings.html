@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="css/settings.css">
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Philip Vigus"/>
+    <meta name="description" content="Settings page for the clock"/>
+    
+    <title>Clock settings</title>
+  </head>
+
+  <body>
+    <div>
+        <p>Settings</p>
+        <form id="settings">
+            <label><input type="radio" name="time-format" value="12h">12 hour</label>
+            <label><input type="radio" name="time-format" value="24h">24 hour</label>
+            <button type="button">Get</button>
+            <button type="button">Apply</button>
+        </form>
+    </div>
+
+    <script src="js/settings.js"></script>
+  </body>
+</html>
